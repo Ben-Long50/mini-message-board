@@ -5,7 +5,18 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1 class="title"><%= title %></h1>
+    <ul class="message-list">
+      <% messages.forEach(message => { %>
+      <li class="message">
+          <h3><%= message.user %></h3>
+          <p><%= message.added %></p>
+          <p><%= message.text %></p>
+       <% }) %>
+      </li>
+    </ul>
+    <a href="/new-message">
+      <button class="button" >New Message</button>
+    </a>
   </body>
 </html>

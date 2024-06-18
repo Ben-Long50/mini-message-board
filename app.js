@@ -4,21 +4,12 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import mongoose from 'mongoose';
 import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
+import newMessageRouter from './routes/newMessage.js';
 
 const __dirname = import.meta.dirname;
 
 const app = express();
-mongoose.set('strictQuery', false);
-const mongoDB =
-  'mongodb+srv://Ben_Long:7skFOfMMxEQz6mwz@cluster0.xp4dg26.mongodb.net/local_library?retryWrites=true&w=majority&appName=Cluster0';
-
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/new-message', newMessageRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
