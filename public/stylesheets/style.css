@@ -51,6 +51,17 @@ ul {
   border: solid black 1.5px;
   box-sizing: border-box;
   padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .title {

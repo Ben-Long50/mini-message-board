@@ -9,11 +9,17 @@
     <ul class="message-list">
       <% messages.forEach(message => { %>
       <li class="message">
-          <h3><%= message.user %></h3>
-          <p><%= message.added %></p>
-          <p><%= message.text %></p>
-       <% }) %>
+        <div class="message-info">
+          <h3><%= message.name %></h3>
+          <p><%= message.timestamp %></p>
+        </div>
+          <p class="content"><%= message.message %></p>
+          <form action="/delete" method="post">
+            <input type="hidden" name="id" value="<%= message.id %>"/>
+            <button type="submit">Delete</button>
+          </form>
       </li>
+      <% }) %>
     </ul>
     <a href="/new-message">
       <button class="button" >New Message</button>
